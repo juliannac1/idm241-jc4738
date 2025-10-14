@@ -100,6 +100,13 @@ body{
     display: block;
   }
   
+    /* Quick Shop button image */
+  .image-wrapper button.quick img {
+    width: auto;
+    height: 40px; /* adjust to your image height */
+    display: block;
+  }
+
   /* --- Button positions --- */
   .heart {
     top: 10px;
@@ -117,6 +124,13 @@ body{
     right: 10px;
     transform: translateY(-50%);
   }
+
+  .quick {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   
   /* --- Show buttons when hovering the card --- */
   .product-card:hover .image-wrapper button {
