@@ -2,35 +2,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Beta Build</title>
 </head>
 <body>
-    <div class="product-card">
-        <div class="image-wrapper">
-          <!-- Product images -->
-          <img src="media/img1.png" alt="Product" class="product-image main">
-          <img src="media/img2.png" alt="Product" class="product-image hover">
+  <div class="product-card">
+    <div class="image-wrapper">
+      <img src="media/img1.png" alt="Product" class="product-image main">
+      <img src="media/img2.png" alt="Product" class="product-image hover">
       
-          <button class="heart" >
-            <img src="media/heart.png" alt="Add to wishlist">
-          </button>
-        
-          <!-- Left arrow -->
-          <button class="left" >
-            <img src="media/left.png" alt="Previous button">
-          </button>
-        
-          <!-- Right arrow -->
-          <button class="right" >
-            <img src="media/right.png" alt="Next button">
-          </button>
-
-          <!-- Quick Shop -->
-          <button class="quick" >
-            <img src="media/quick.png" alt="Quick Shop Button">
-          </button>
-        </div>
-      
+      <button class="heart-btn">
+        <img src="media/heart.png" alt="Add to wishlist">
+      </button>
+  
+      <button class="quick-shop-btn">Quick Shop</button>
+  
+      <div class="arrows">
+        <img src="media/left.png" alt="Left" class="arrow left">
+        <img src="media/right.png" alt="Right" class="arrow right">
       </div>
+    </div>
+  </div>
+      <div class="text">
+        <h1>IDM 241 Microinteractions Beta</h1>
+        <hr>
+          <a href="https://www.ae.com/us/en/c/aerie/tops/cat4130031?pagetype=plp" target="_blank" rel="noopener noreferrer" class="button-link">
+            Original Website
+          </a>
+          
+        <br>
+          <p>Julianna Chin</p>
+          <p>Shirt product card</p>
+        <h3>Trigger:</h3>
+          <ul>
+            <p>Product Card:</p>
+            <ul>
+              <li>Hover on</li>
+              <li>Hover off</li>
+             </ul>
+            <p>Heart Icon:</p>
+             <ul>
+                <li>Hover On</li>
+                <li>Hover Off</li>
+            </ul>
+            <p>Quick Shop button:</p>
+             <ul>
+                <li>Hover On</li>
+                <li>Hover Off</li>
+             </ul>
+            </ul>
+    
+            
+          </ul>
+          <br>
+        <h3>Rules:</h3>
+          <ul>
+            <p>Product Card:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>the image will fade to the second image over 0.5 seconds </li>
+                <li> the heart icon will reveal with a fade in over 0.5 seconds </li>
+                <li> the slide show arrows will reveal with a fade in over 0.5 seconds </li>
+                <li>the "Quick Shop" button will reveal with a fade in over 0.5 seconds</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>the second image will fade to the first image over 0.5 seconds </li>
+                <li> the heart icon will fade out over 0.5 seconds </li>
+                <li> the slide show arrows will fade out over 0.5 seconds </li>
+                <li>the "Quick Shop" button will fade out 0.5 seconds</li>
+              </ul>
+            </ul>
+            <p>Heart Icon:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
+                <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>Heart Icon black border fades to gray 1px border over 0.5 seconds </li> 
+                <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+              </ul>
+            </ul>
+            
+            <p>Quick Shop Button:</p>
+            <ul>
+              Hover on:
+                <ul>
+                  <li>3px Gray border fades in the inside of the button over 0.5 seconds</li>
+                  <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+                </ul>
+              Hover off:
+                <ul>
+                  <li>Quick Shop Button border fades out over 0.5 seconds</li> 
+                  <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+                </ul>
+              </ul>
+          </ul>
+          <br>
+          <h3>Feedback:</h3>
+          <ul>
+            <p>Product Card:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>the image will fade to the second image over 0.5 seconds </li>
+                <li> the heart icon will reveal with a fade in over 0.5 seconds </li>
+                <li> the slide show arrows will reveal with a fade in over 0.5 seconds </li>
+                <li>the "Quick Shop" button will reveal with a fade in over 0.5 seconds</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>the second image will fade to the first image over 0.5 seconds </li>
+                <li> the heart icon will fade out over 0.5 seconds </li>
+                <li> the slide show arrows will fade out over 0.5 seconds </li>
+                <li>the "Quick Shop" button will fade out 0.5 seconds</li>
+              </ul>
+            </ul>
+            <p>Heart Icon:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
+                <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>Heart Icon black border fades to gray 1px border over 0.5 seconds </li> 
+                <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+              </ul>
+            </ul>
+            
+            <p>Quick Shop Button:</p>
+            <ul>
+              Hover on:
+                <ul>
+                  <li>3px Gray border fades in the inside of the button over 0.5 seconds</li>
+                  <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+                </ul>
+              Hover off:
+                <ul>
+                  <li>Quick Shop Button border fades out over 0.5 seconds</li> 
+                  <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+                </ul>
+              </ul>
+          </ul>
+          <br>
+         <h3>Loops & Modes:</h3> 
+            <ul>
+            <p>None</p>
+            </ul>
+        </div>
 </body>
 </html>

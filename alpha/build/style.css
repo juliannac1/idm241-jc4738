@@ -107,38 +107,110 @@ body{
     display: block;
   }
 
-  /* --- Button positions --- */
-  .heart {
-    top: 10px;
-    right: 10px;
-  }
-  
-  .left {
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-  
-  .right {
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-  }
+  /* Product Images */
+.image-wrapper .image {
+  width: 100%;
+  display: block;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
-  .quick {
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  
-  /* --- Show buttons when hovering the card --- */
-  .product-card:hover .image-wrapper button {
-    opacity: 1;
-  }
-  
-  @media (hover: none) {
-    .image-wrapper button {
-      opacity: 1;
-    }
-  }
+.image-wrapper .image-2 {
+  opacity: 0;
+}
+
+/* Hover: fade to second image */
+.image-wrapper:hover .image-2 {
+  opacity: 1;
+}
+
+.image-wrapper:hover .image-1 {
+  opacity: 0;
+}
+
+/* Heart Button */
+.heart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: red;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid gray;
+  border-radius: 50%;
+  padding: 6px 10px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/* Reveal heart on hover of card */
+.image-wrapper:hover .heart-btn {
+  opacity: 1;
+}
+
+/* Heart hover */
+.heart-btn:hover {
+  border-color: black;
+}
+
+/* Slideshow Arrows */
+.arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  opacity: 0;
+  pointer-events: none; /* avoid blocking clicks */
+  transition: opacity 0.5s ease;
+}
+
+.image-wrapper:hover .arrows {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.arrow {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Heart hover affects arrows */
+.heart-btn:hover ~ .arrows {
+  opacity: 0;
+}
+
+/* Quick Shop Button */
+.quick-shop {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/* Reveal Quick Shop on card hover */
+.image-wrapper:hover .quick-shop {
+  opacity: 1;
+}
+
+/* Quick Shop hover effect */
+.quick-shop:hover {
+  border: 3px solid gray;
+}
+
+/* Quick Shop hover hides arrows */
+.quick-shop:hover ~ .arrows {
+  opacity: 0;
+}
