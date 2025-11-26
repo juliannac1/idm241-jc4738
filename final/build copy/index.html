@@ -1,0 +1,292 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Final Build</title>
+</head>
+<body>
+  <title>Product Card</title>
+  
+</head>
+<body>
+  <div class="product-card"></div>
+    <div class="image-wrapper">
+      <img src="media/img1.png" alt="Product" class="product-image main">
+      <img src="media/img2.png" alt="Product" class="product-image hover">
+      
+      
+        <!-- <img src="media/grayHeart.svg" alt="GrayHeart Icon" class="heart-btn"> -->
+      
+  
+      <button class="quick-shop-btn">Quick Shop</button>
+  
+      <div class="arrows">
+        <img src="media/left.png" alt="Left" class="arrow left">
+        <img src="media/right.png" alt="Right" class="arrow right">
+      </div>
+    </div>
+  </div>
+
+    <div class="text">
+        <h1>IDM 241 Microinteractions Final</h1>
+        <hr>
+          <a href="https://www.ae.com/us/en/c/aerie/tops/cat4130031?pagetype=plp" target="_blank" rel="noopener noreferrer" class="button-link">
+            Original Website
+          </a>
+          
+        <br>
+          <p>Julianna Chin</p>
+          <p>Shirt product card</p>
+        <h3>Trigger:</h3>
+          <ul>
+            <p>Product Card:</p>
+            <ul>
+              <li>Hover on</li>
+              <li>Hover off</li>
+             </ul>
+            <p>Heart Icon:</p>
+             <ul>
+                <li>Hover On</li>
+                <li>Hover Off</li>
+                <li>Click</li>
+            </ul>
+            <p>Quick Add:</p>
+             <ul>
+                <li>Hover On</li>
+                <li>Hover Off</li>
+             </ul>
+            
+            <p>Size Labels</p>
+            <ul>
+               <li>Hover On</li>
+               <li>Hover Off</li>
+          
+            </ul>
+           
+            <p>Size Button</p>
+             <ul>
+                <li>Hover On</li>
+                <li>Hover Off</li>
+             </ul>
+            
+            <p>Add Button:</p>
+            <ul>
+               <li>Hover On</li>
+               <li>Hover Off</li>
+               <li>Click</li>
+            </ul>
+           </ul>
+        
+          </ul>
+          <br>
+        <h3>Rules:</h3>
+          <ul>
+            <p>Product Card:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>The image will fade to the second image over 0.5 seconds </li>
+                <li>The heart icon will reveal with a fade in over 0.5 seconds </li>
+                <li>The slide show arrows will reveal with a fade in over 0.5 seconds </li>
+                <li>The "Quick Add" buttons will reveal with a fade in over 0.5 seconds</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>The second image will fade to the first image over 0.5 seconds </li>
+                <li>The heart icon will fade out over 0.5 seconds </li>
+                <li>The slide show arrows will fade out over 0.5 seconds </li>
+                <li>The "Quick Add" buttons will fade out 0.5 seconds</li>
+              </ul>
+            </ul>
+            <p>Heart Icon:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
+                <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+                <li>Cursor changes to finger</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>Heart Icon black border fades to gray 1px border over 0.5 seconds </li> 
+                <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+                <li>Cursor changes to pointer</li>
+              </ul>
+            Click:
+            <ul>
+              <li>If the heart grows to 125% size and fills with red</li>
+              <li>When clicked again, the heart shrinks back to 100% size and fills with white</li>
+            </ul>
+            </ul>
+            
+            <p>Quick Add:</p>
+            <ul>
+              Hover on:
+                <ul>
+                    <li>Size button and add button box appear over 0.5 seconds</li>
+                </ul>
+              Hover off:
+                <ul>
+                    <li>Size button and add button box fade out over 0.5 seconds</li>
+                </ul>
+              </ul>
+    
+              <p>Size Labels:</p>
+              <ul>
+                Hover on:
+                  <ul>
+                      <li>Size label gray border fades to a black 1px border over 0.5 seconds</li>
+                  </ul>
+                Hover off:
+                  <ul>
+                      <li>Size label black border fades to a gray 1px border over 0.5 seconds</li>
+                  </ul>
+              </ul>
+    
+            <p>Size Button:</p>
+            <ul>
+              Hover on:
+                <ul>
+                    <li>Label box fades up from the "quick add" button over 0.5 seconds</li>
+                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+                </ul>
+              Hover off:
+                <ul>
+                    <li>Label box fades out from the "quick add" button over 0.5 second</li>
+                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+                </ul>
+            </ul>
+    
+            <p>Add Button:</p>
+            <ul>
+              Hover on:
+                <ul>
+                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+                    <li>Cursor changes to finger</li>
+                </ul>
+              Hover off:
+                <ul>
+                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+                    <li>Cursor changes to pointer </li>
+                </ul>
+              Click:
+                <ul>
+                  <li>Update database</li>
+                  <li>If the add button is clicked the background color of the button will fill to white and the text will switch to black over 0.5 sec</li>
+                  <li>If the add button is clicked the background color of the button will reveal to black and the text will switch to white over 0.5 sec</li>
+                </ul>
+            </ul>
+    
+          </ul>
+    
+    
+          <br>
+          <h3>Feedback:</h3>
+          <ul>
+          
+          <ul>
+            <p>Product Card:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>The image will fade to the second image over 0.5 seconds </li>
+                <li>The heart icon will reveal with a fade in over 0.5 seconds </li>
+                <li>The slide show arrows will reveal with a fade in over 0.5 seconds </li>
+                <li>The "Quick Add" buttons will reveal with a fade in over 0.5 seconds</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>The second image will fade to the first image over 0.5 seconds </li>
+                <li>The heart icon will fade out over 0.5 seconds </li>
+                <li>The slide show arrows will fade out over 0.5 seconds </li>
+                <li>The "Quick Add" buttons will fade out 0.5 seconds</li>
+              </ul>
+            </ul>
+            <p>Heart Icon:</p>
+            <ul>
+            Hover on:
+              <ul>
+                <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
+                <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+                <li>Cursor changes to finger</li>
+              </ul>
+            Hover off:
+              <ul>
+                <li>Heart Icon black border fades to gray 1px border over 0.5 seconds </li> 
+                <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+                <li>Cursor changes to pointer</li>
+              </ul>
+            Click:
+            <ul>
+              <li>If the heart grows to 125% size and fills with red over 0.5 seconds</li>
+              <li>When clicked again, the heart shrinks back to 100% size and fills with white over 0.5 seconds</li>
+            </ul>
+            </ul>
+            
+            <p>Quick Add:</p>
+            <ul>
+              Hover on:
+                <ul>
+                    <li>size button and add button box appear over 0.5 seconds</li>
+                </ul>
+              Hover off:
+                <ul>
+                    <li>size button and add button box fade out over 0.5 seconds</li>
+                </ul>
+              </ul>
+    
+              <p>Size Labels:</p>
+              <ul>
+                Hover on:
+                  <ul>
+                      <li>size label gray border fades to a black 1px border over 0.5 seconds</li>
+                  </ul>
+                Hover off:
+                  <ul>
+                      <li>size label black border fades to a gray 1px border over 0.5 seconds</li>
+                  </ul>
+              </ul>
+    
+            <p>Size Button:</p>
+            <ul>
+              Hover on:
+                <ul>
+                    <li>label box fades up from the "quick add" button over 0.5 seconds</li>
+                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+                </ul>
+              Hover off:
+                <ul>
+                    <li>label box fades out from the "quick add" button over 0.5 second</li>
+                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+                </ul>
+            </ul>
+    
+            <p>Add Button:</p>
+            <ul>
+              Hover on:
+                <ul>
+                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+                    <li>Cursor changes to finger</li>
+                </ul>
+              Hover off:
+                <ul>
+                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+                    <li>Cursor changes to pointer</li>
+                </ul>
+              Click:
+                <ul>
+                  <li>If the add button is clicked the background color of the button will fill to white and the text will switch to black over 0.5 sec</li>
+                  <li>If the add button is clicked the background color of the button will reveal to black and the text will switch to white over 0.5 sec</li>
+                </ul>
+            </ul>
+          </ul>
+    
+          <br>
+         <h3>Loops & Modes:</h3> 
+            <ul>
+            <p>None</p>
+            </ul>
+        </div>
+</body>
+</html>
