@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,596 +7,302 @@
     <title>Final Build</title>
 </head>
 <body>
-  <title>Product Card</title>
-  
-</head>
-<body>
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f5f5f5;
-      padding: 2rem;
-    }
-
-    .product-card {
-      width: 900px;
-      position: relative;
-    }
-
-    .image-container {
-      position: relative;
-      overflow: hidden;
-      background-color: #fafafa;
-      border-radius: 0.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    .product-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .image-one {
-      position: relative;
-      z-index: 1;
-    }
-
-    .image-two {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      z-index: 2;
-    }
-
-    .image-container:hover .image-two {
-      opacity: 1;
-    }
-
-    /* Size button container */
-    .size-button-container {
-      position: absolute;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 10;
-    }
-
-    .image-container:hover .size-button-container {
-      opacity: 1;
-      animation: slideInFromBottom 0.2s ease-out;
-    }
-
-    @keyframes slideInFromBottom {
-      from {
-        transform: translateX(-50%) translateY(0.5rem);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-      }
-    }
-
-    /* Size list */
-    .size-list {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-bottom: 0.5rem;
-      background: white;
-      border: 1px solid #e5e5e5;
-      border-radius: 0.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      padding: 0.75rem;
-      width: 16rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-
-    .size-button-container:hover .size-list {
-      opacity: 1;
-      pointer-events: auto;
-      animation: slideInFromBottom 0.2s ease-out;
-    }
-
-    .size-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.5rem;
-    }
-
-    .size-option {
-      padding: 0.5rem 0.75rem;
-      border: 1px solid #e5e5e5;
-      border-radius: 0.25rem;
-      background: white;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: center;
-    }
-
-    .size-option:hover {
-      border-color: #171717;
-      background-color: #fafafa;
-    }
-
-    /* Size and Add buttons */
-    .button-group {
-      display: flex;
-    }
-
-    .size-btn {
-      width: 12rem;
-      padding: 0.5rem 1rem;
-      background-color: #171717;
-      color: white;
-      border: none;
-      border-radius: 0.5rem 0 0 0.5rem;
-      cursor: default;
-      transition: background-color 0.2s;
-    }
-
-    .size-btn:hover {
-      background-color: #262626;
-    }
-
-    /* Add button with checkbox hack */
-    #add-toggle {
-      display: none;
-    }
-
-    .add-btn {
-      width: 4rem;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 0 0.5rem 0.5rem 0;
-      border-left: 1px solid #404040;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      color: white;
-      transition: border-color 0.5s;
-    }
-
-    .add-btn-bg {
-      position: absolute;
-      inset: 0;
-      background-color: #171717;
-      z-index: 0;
-    }
-
-    .add-btn-fill {
-      position: absolute;
-      inset: 0;
-      background-color: white;
-      z-index: 1;
-      transform: translateY(100%);
-      transition: transform 0.5s ease-out;
-    }
-
-    .add-btn-text {
-      position: relative;
-      z-index: 2;
-    }
-
-    #add-toggle:checked + .size-button-container .add-btn {
-      color: black;
-      border-left-color: #e5e5e5;
-    }
-
-    #add-toggle:checked + .size-button-container .add-btn-fill {
-      transform: translateY(0);
-    }
-
-    /* Heart icon */
-    #heart-toggle {
-      display: none;
-    }
-
-    .heart-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      padding: 0.5rem;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 10;
-    }
-
-    .image-container:hover .heart-btn {
-      opacity: 1;
-    }
-
-    .heart-icon {
-      width: 2rem;
-      height: 2rem;
-      fill: rgba(255, 255, 255, 0.7);
-      stroke: #d4d4d4;
-      stroke-width: 2;
-      transition: all 0.5s;
-      transform: scale(1);
-    }
-
-    .heart-btn:hover .heart-icon {
-      stroke: black;
-    }
-
-    #heart-toggle:checked + .image-container .heart-icon {
-      fill: #ef4444;
-      transform: scale(1.25);
-    }
-
-    /* Arrows */
-    .arrow-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 2.5rem;
-      height: 2.5rem;
-      background-color: rgba(255, 255, 255, 0.7);
-      border: 1px solid #d4d4d4;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.5s;
-      z-index: 5;
-    }
-
-    .arrow-left {
-      left: 1rem;
-    }
-
-    .arrow-right {
-      right: 1rem;
-    }
-
-    .image-container:hover .arrow-btn {
-      opacity: 1;
-    }
-
-    .heart-btn:hover ~ .arrow-btn {
-      opacity: 0;
-    }
-
-    .arrow-icon {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-  </style>
-</head>
-<body>
   <div class="product-card">
-    <input type="checkbox" id="heart-toggle">
-    <input type="checkbox" id="add-toggle">
-    
-    <div class="image-container">
-      <img src="media/img1.png" alt="Img 1" class="product-image image-one">
-      <img src="media/img2.png" alt="Img 2" class="product-image image-two">
+    <div class="product-card__image-container" id="imageContainer">
+      <img src="media/img1.png" alt="Img 1" class="product-card__image" id="image1">
+      <img src="media/img2.png" alt="Img 2" class="product-card__image" id="image2" style="position: absolute; top: 0; left: 0; opacity: 0;">
       
-      <label for="add-toggle" class="size-button-container">
-        <div class="size-list">
-          <div class="size-grid">
-            <button class="size-option">XS</button>
-            <button class="size-option">S</button>
-            <button class="size-option">M</button>
-            <button class="size-option">L</button>
-            <button class="size-option">XL</button>
-          </div>
-        </div>
-        
-        <div class="button-group">
-          <button class="size-btn">Size</button>
-          <div class="add-btn">
-            <span class="add-btn-bg"></span>
-            <span class="add-btn-fill"></span>
-            <span class="add-btn-text">Add</span>
-          </div>
-        </div>
-      </label>
-
-      <label for="heart-toggle" class="heart-btn">
-        <svg class="heart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Heart Button -->
+      <button class="product-card__heart-btn" id="heartBtn">
+        <svg class="product-card__heart-icon" id="heartIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
         </svg>
-      </label>
+      </button>
 
-      <button class="arrow-btn arrow-left">
-        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <!-- Arrow Buttons -->
+      <button class="product-card__arrow-btn product-card__arrow-btn--left product-card__arrow-btn--hidden" id="arrowLeft">
+        <svg class="product-card__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="15 18 9 12 15 6"></polyline>
         </svg>
       </button>
       
-      <button class="arrow-btn arrow-right">
-        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <button class="product-card__arrow-btn product-card__arrow-btn--right product-card__arrow-btn--hidden" id="arrowRight">
+        <svg class="product-card__arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>
+
+      <!-- Size Container -->
+      <div class="product-card__size-container" id="sizeContainer" style="opacity: 0;">
+        <div class="product-card__size-list-wrapper" id="sizeListWrapper" style="display: none;">
+          <div class="product-card__size-list">
+            <div class="product-card__size-grid">
+              <button class="product-card__size-option">XS</button>
+              <button class="product-card__size-option">S</button>
+              <button class="product-card__size-option">M</button>
+              <button class="product-card__size-option">L</button>
+              <button class="product-card__size-option">XL</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card__button-group">
+          <button class="product-card__size-btn" id="sizeBtn">Size</button>
+          <button class="product-card__add-btn" id="addBtn">
+            <span class="product-card__add-btn-bg"></span>
+            <span class="product-card__add-btn-fill"></span>
+            <span class="product-card__add-btn-text">Add</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
   
-    <div class="text">
-        <h1>IDM 241 Microinteractions Final</h1>
-        <hr>
-          <a href="https://www.ae.com/us/en/c/aerie/tops/cat4130031?pagetype=plp" target="_blank" rel="noopener noreferrer" class="button-link">
-            Original Website
-          </a>
-          
-        <br>
-          <p>Julianna Chin</p>
-          <p>Shirt product card</p>
-        <h3>Trigger:</h3>
-          <ul>
-            <p>Product Card:</p>
-            <ul>
-              <li>Hover on</li>
-              <li>Hover off</li>
-             </ul>
-            <p>Heart Icon:</p>
-             <ul>
-                <li>Hover On</li>
-                <li>Hover Off</li>
-                <li>Click</li>
-            </ul>
-            <p>Quick Add:</p>
-             <ul>
-                <li>Hover On</li>
-                <li>Hover Off</li>
-             </ul>
-            
-            <p>Size Labels</p>
-            <ul>
-               <li>Hover On</li>
-               <li>Hover Off</li>
-          
-            </ul>
-           
-            <p>Size Button</p>
-             <ul>
-                <li>Hover On</li>
-                <li>Hover Off</li>
-             </ul>
-            
-            <p>Add Button:</p>
-            <ul>
-               <li>Hover On</li>
-               <li>Hover Off</li>
-               <li>Click</li>
-            </ul>
-           </ul>
-        
-          </ul>
-          <br>
-        <h3>Rules:</h3>
-          <ul>
-            <p>Product Card:</p>
-            <ul>
-            Hover on:
-              <ul>
-                <li>The image will fade to the second image over 0.5 seconds </li>
-                <li>The heart icon will reveal with a fade in over 0.5 seconds </li>
-                <li>The slide show arrows will reveal with a fade in over 0.5 seconds </li>
-                <li>The "Quick Add" buttons will reveal with a fade in over 0.5 seconds</li>
-              </ul>
-            Hover off:
-              <ul>
-                <li>The second image will fade to the first image over 0.5 seconds </li>
-                <li>The heart icon will fade out over 0.5 seconds </li>
-                <li>The slide show arrows will fade out over 0.5 seconds </li>
-                <li>The "Quick Add" buttons will fade out 0.5 seconds</li>
-              </ul>
-            </ul>
-            <p>Heart Icon:</p>
-            <ul>
-            Hover on:
-              <ul>
-                <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
-                <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
-                <li>Cursor changes to finger</li>
-              </ul>
-            Hover off:
-              <ul>
-                <li>Heart Icon black border fades to gray 1px border over 0.5 seconds </li> 
-                <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
-                <li>Cursor changes to pointer</li>
-              </ul>
-            Click:
-            <ul>
-              <li>If the heart grows to 125% size and fills with red</li>
-              <li>When clicked again, the heart shrinks back to 100% size and fills with white</li>
-            </ul>
-            </ul>
-            
-            <p>Quick Add:</p>
-            <ul>
-              Hover on:
-                <ul>
-                    <li>Size button and add button box appear over 0.5 seconds</li>
-                </ul>
-              Hover off:
-                <ul>
-                    <li>Size button and add button box fade out over 0.5 seconds</li>
-                </ul>
-              </ul>
+  <div class="text">
+    <h1>IDM 241 Microinteractions Final</h1>
+    <hr>
+    <a href="https://www.ae.com/us/en/c/aerie/tops/cat4130031?pagetype=plp" target="_blank" rel="noopener noreferrer" class="button-link">
+      Original Website
+    </a>
     
-              <p>Size Labels:</p>
-              <ul>
-                Hover on:
-                  <ul>
-                      <li>Size label gray border fades to a black 1px border over 0.5 seconds</li>
-                  </ul>
-                Hover off:
-                  <ul>
-                      <li>Size label black border fades to a gray 1px border over 0.5 seconds</li>
-                  </ul>
-              </ul>
+    <br>
+    <p>Julianna Chin</p>
+    <p>Shirt product card</p>
     
-            <p>Size Button:</p>
-            <ul>
-              Hover on:
-                <ul>
-                    <li>Label box fades up from the "quick add" button over 0.5 seconds</li>
-                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
-                </ul>
-              Hover off:
-                <ul>
-                    <li>Label box fades out from the "quick add" button over 0.5 second</li>
-                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
-                </ul>
-            </ul>
+    <h3>Trigger:</h3>
+    <ul>
+      <p>Product Card:</p>
+      <ul>
+        <li>Hover on</li>
+        <li>Hover off</li>
+      </ul>
+      <p>Heart Icon:</p>
+      <ul>
+        <li>Hover On</li>
+        <li>Hover Off</li>
+        <li>Click</li>
+      </ul>
+      <p>Quick Add:</p>
+      <ul>
+        <li>Hover On</li>
+        <li>Hover Off</li>
+      </ul>
+      <p>Size Labels</p>
+      <ul>
+        <li>Hover On</li>
+        <li>Hover Off</li>
+      </ul>
+      <p>Size Button</p>
+      <ul>
+        <li>Hover On</li>
+        <li>Hover Off</li>
+      </ul>
+      <p>Add Button:</p>
+      <ul>
+        <li>Hover On</li>
+        <li>Hover Off</li>
+        <li>Click</li>
+      </ul>
+    </ul>
     
-            <p>Add Button:</p>
-            <ul>
-              Hover on:
-                <ul>
-                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
-                    <li>Cursor changes to finger</li>
-                </ul>
-              Hover off:
-                <ul>
-                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
-                    <li>Cursor changes to pointer </li>
-                </ul>
-              Click:
-                <ul>
-                  <li>Update database</li>
-                  <li>If the add button is clicked the background color of the button will fill to white and the text will switch to black over 0.5 sec</li>
-                  <li>If the add button is clicked the background color of the button will reveal to black and the text will switch to white over 0.5 sec</li>
-                </ul>
-            </ul>
+    <br>
+    <h3>Rules:</h3>
+    <ul>
+      <p>Product Card:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>The image will fade to the second image over 0.5 seconds</li>
+          <li>The heart icon will reveal with a fade in over 0.5 seconds</li>
+          <li>The slide show arrows will reveal with a fade in over 0.5 seconds</li>
+          <li>The "Quick Add" buttons will reveal with a fade in over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>The second image will fade to the first image over 0.5 seconds</li>
+          <li>The heart icon will fade out over 0.5 seconds</li>
+          <li>The slide show arrows will fade out over 0.5 seconds</li>
+          <li>The "Quick Add" buttons will fade out 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Heart Icon:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
+          <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+          <li>Cursor changes to finger</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>Heart Icon black border fades to gray 1px border over 0.5 seconds</li>
+          <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+          <li>Cursor changes to pointer</li>
+        </ul>
+        Click:
+        <ul>
+          <li>If the heart grows to 125% size and fills with red</li>
+          <li>When clicked again, the heart shrinks back to 100% size and fills with white</li>
+        </ul>
+      </ul>
+      <p>Quick Add:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>Size button and add button box appear over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>Size button and add button box fade out over 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Size Labels:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>Size label gray border fades to a black 1px border over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>Size label black border fades to a gray 1px border over 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Size Button:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>Label box fades up from the "quick add" button over 0.5 seconds</li>
+          <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>Label box fades out from the "quick add" button over 0.5 second</li>
+          <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Add Button:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+          <li>Cursor changes to finger</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+          <li>Cursor changes to pointer</li>
+        </ul>
+        Click:
+        <ul>
+          <li>Update database</li>
+          <li>If the add button is clicked the background color of the button will fill to white and the text will switch to black over 0.5 sec</li>
+          <li>If the add button is clicked the background color of the button will reveal to black and the text will switch to white over 0.5 sec</li>
+        </ul>
+      </ul>
+    </ul>
     
-          </ul>
+    <br>
+    <h3>Feedback:</h3>
+    <ul>
+      <p>Product Card:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>The image will fade to the second image over 0.5 seconds</li>
+          <li>The heart icon will reveal with a fade in over 0.5 seconds</li>
+          <li>The slide show arrows will reveal with a fade in over 0.5 seconds</li>
+          <li>The "Quick Add" buttons will reveal with a fade in over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>The second image will fade to the first image over 0.5 seconds</li>
+          <li>The heart icon will fade out over 0.5 seconds</li>
+          <li>The slide show arrows will fade out over 0.5 seconds</li>
+          <li>The "Quick Add" buttons will fade out 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Heart Icon:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
+          <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
+          <li>Cursor changes to finger</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>Heart Icon black border fades to gray 1px border over 0.5 seconds</li>
+          <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
+          <li>Cursor changes to pointer</li>
+        </ul>
+        Click:
+        <ul>
+          <li>If the heart grows to 125% size and fills with red over 0.5 seconds</li>
+          <li>When clicked again, the heart shrinks back to 100% size and fills with white over 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Quick Add:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>size button and add button box appear over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>size button and add button box fade out over 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Size Labels:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>size label gray border fades to a black 1px border over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>size label black border fades to a gray 1px border over 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Size Button:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>label box fades up from the "quick add" button over 0.5 seconds</li>
+          <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>label box fades out from the "quick add" button over 0.5 second</li>
+          <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+        </ul>
+      </ul>
+      <p>Add Button:</p>
+      <ul>
+        Hover on:
+        <ul>
+          <li>10% white overlay is added on top of the button over 0.5 seconds</li>
+          <li>Cursor changes to finger</li>
+        </ul>
+        Hover off:
+        <ul>
+          <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
+          <li>Cursor changes to pointer</li>
+        </ul>
+        Click:
+        <ul>
+          <li>If the add button is clicked the background color of the button will fill to white and the text will switch to black over 0.5 sec</li>
+          <li>If the add button is clicked the background color of the button will reveal to black and the text will switch to white over 0.5 sec</li>
+        </ul>
+      </ul>
+    </ul>
     
-    
-          <br>
-          <h3>Feedback:</h3>
-          <ul>
-          
-          <ul>
-            <p>Product Card:</p>
-            <ul>
-            Hover on:
-              <ul>
-                <li>The image will fade to the second image over 0.5 seconds </li>
-                <li>The heart icon will reveal with a fade in over 0.5 seconds </li>
-                <li>The slide show arrows will reveal with a fade in over 0.5 seconds </li>
-                <li>The "Quick Add" buttons will reveal with a fade in over 0.5 seconds</li>
-              </ul>
-            Hover off:
-              <ul>
-                <li>The second image will fade to the first image over 0.5 seconds </li>
-                <li>The heart icon will fade out over 0.5 seconds </li>
-                <li>The slide show arrows will fade out over 0.5 seconds </li>
-                <li>The "Quick Add" buttons will fade out 0.5 seconds</li>
-              </ul>
-            </ul>
-            <p>Heart Icon:</p>
-            <ul>
-            Hover on:
-              <ul>
-                <li>Heart icon gray border fades to a black 1px border over 0.5 seconds</li>
-                <li>Slideshow arrows fade out over 0.5 seconds on the product card</li>
-                <li>Cursor changes to finger</li>
-              </ul>
-            Hover off:
-              <ul>
-                <li>Heart Icon black border fades to gray 1px border over 0.5 seconds </li> 
-                <li>Slideshow arrows fade in over 0.5 seconds on the product card</li>
-                <li>Cursor changes to pointer</li>
-              </ul>
-            Click:
-            <ul>
-              <li>If the heart grows to 125% size and fills with red over 0.5 seconds</li>
-              <li>When clicked again, the heart shrinks back to 100% size and fills with white over 0.5 seconds</li>
-            </ul>
-            </ul>
-            
-            <p>Quick Add:</p>
-            <ul>
-              Hover on:
-                <ul>
-                    <li>size button and add button box appear over 0.5 seconds</li>
-                </ul>
-              Hover off:
-                <ul>
-                    <li>size button and add button box fade out over 0.5 seconds</li>
-                </ul>
-              </ul>
-    
-              <p>Size Labels:</p>
-              <ul>
-                Hover on:
-                  <ul>
-                      <li>size label gray border fades to a black 1px border over 0.5 seconds</li>
-                  </ul>
-                Hover off:
-                  <ul>
-                      <li>size label black border fades to a gray 1px border over 0.5 seconds</li>
-                  </ul>
-              </ul>
-    
-            <p>Size Button:</p>
-            <ul>
-              Hover on:
-                <ul>
-                    <li>label box fades up from the "quick add" button over 0.5 seconds</li>
-                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
-                </ul>
-              Hover off:
-                <ul>
-                    <li>label box fades out from the "quick add" button over 0.5 second</li>
-                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
-                </ul>
-            </ul>
-    
-            <p>Add Button:</p>
-            <ul>
-              Hover on:
-                <ul>
-                    <li>10% white overlay is added on top of the button over 0.5 seconds</li>
-                    <li>Cursor changes to finger</li>
-                </ul>
-              Hover off:
-                <ul>
-                    <li>10% white overlay is removed from the top of the button over 0.5 seconds</li>
-                    <li>Cursor changes to pointer</li>
-                </ul>
-              Click:
-                <ul>
-                  <li>If the add button is clicked the background color of the button will fill to white and the text will switch to black over 0.5 sec</li>
-                  <li>If the add button is clicked the background color of the button will reveal to black and the text will switch to white over 0.5 sec</li>
-                </ul>
-            </ul>
-          </ul>
-    
-          <br>
-         <h3>Loops & Modes:</h3> 
-            <ul>
-            <p>None</p>
-            </ul>
-        </div>
+    <br>
+    <h3>Loops & Modes:</h3>
+    <ul>
+      <p>None</p>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
