@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer !important;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #f5f5f5;
@@ -83,7 +87,7 @@ body {
   border: 1px solid #e5e5e5;
   border-radius: 0.25rem;
   background: white;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: all 0.5s ease-in-out;
   text-align: center;
   font-family: inherit;
@@ -106,7 +110,7 @@ body {
   color: white;
   border: none;
   border-radius: 0.5rem 0 0 0.5rem;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: all 0.5s ease-in-out;
   font-family: inherit;
   font-size: 1rem;
@@ -135,17 +139,13 @@ body {
   border: none;
   border-radius: 0 0.5rem 0.5rem 0;
   border-left: 1px solid #404040;
-  cursor: pointer;
+  cursor: pointer !important;
   position: relative;
   overflow: hidden;
   color: white;
   transition: border-color 0.5s, color 0.5s;
   font-family: inherit;
   font-size: 1rem;
-}
-
-.product-card__add-btn:hover {
-  cursor: pointer;
 }
 
 .product-card__add-btn::before {
@@ -202,14 +202,10 @@ body {
   padding: 0.5rem;
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: pointer !important;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   z-index: 10;
-}
-
-.product-card__heart-btn:hover {
-  cursor: pointer;
 }
 
 .product-card__heart-icon {
@@ -249,7 +245,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: pointer !important;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   z-index: 5;
