@@ -11,9 +11,46 @@ body{
 }
 
 
-nav{
+nav {
+    background: #f7fff9;
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.25);
+    max-width: 900px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;        /* allows wrapping on small screens */
+    justify-content: center; /* keeps it centered */
+    gap: 10px; 
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 10px 16px;
+    border-radius: 30px;
+    background: #25a0507d;
+    color: #062b0b;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(182, 255, 188, 0.35);
+    white-space: nowrap;     /* prevents awkward line breaks inside words */
+  }
+  
+  nav ul li a:hover {
+    background: #067a2c;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(160, 255, 184, 0.45);
+  }
 
-}
 
 .text{
     align-items: center;

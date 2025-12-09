@@ -2,7 +2,7 @@ nav {
     background: #f7fff9;
     padding: 1rem 1.5rem;
     border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(255, 182, 193, 0.25);
+    box-shadow: 0 4px 12px rgba(188, 255, 182, 0.25);
     max-width: 900px;
     margin: 20px auto;
     display: flex;
@@ -27,7 +27,7 @@ nav {
     background: #25a0507d;
     color: #062b0b;
     transition: all 0.25s ease;
-    box-shadow: 0 2px 6px rgba(255, 182, 193, 0.35);
+    box-shadow: 0 2px 6px rgba(182, 255, 188, 0.35);
     white-space: nowrap;     /* prevents awkward line breaks inside words */
   }
   
@@ -95,6 +95,27 @@ li {
     margin: 1rem 0;
     transition: background-color 0.2s;
   }
+  .media-wrapper {
+    display: flex;
+    justify-content: center;   /* centers all the media items as a group */
+    gap: 20px;                 /* space between items */
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .media {
+    display: inline-flex;        /* puts all .media next to each other */
+    flex-direction: column;      /* img above text */
+    align-items: center;
+    vertical-align: top;         /* keeps them aligned on the top edge */
+    margin: 0 20px;
+  }
+  
+  .media img {
+    width: auto;
+    height: 300px;
+    
+  }
 
   .solution {
     display: flex;
@@ -108,3 +129,5 @@ li {
     height: auto;
     flex: 0 0 auto;           
   }
+
+  
